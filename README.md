@@ -118,3 +118,34 @@ module.exports = {
     ...
 };
 ```
+
+## Step 4: Set Up React
+
+### 4.1 Install React
+
+In order to use react install these dependencies:
+
+1. react (provides us with API to work with components)
+2. react-dom (allows to render HTML to the DOM)
+
+```
+npm i react react-dom
+```
+
+### 4.2 Create App.js file
+
+Create App.js file inside src folder with content:
+
+```
+import React from "react"
+import ReactDOM from "react-dom"
+
+const App = () => (
+    <>
+        <h1>Hello React</h1>
+        <p>Minimal React configuration</p>
+    </>
+)
+
+ReactDOM.render(<App />, document.getElementById("root"))
+```
