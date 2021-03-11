@@ -66,7 +66,7 @@ plugins: [new HtmlWebPackPlugin({ template: "./src/index.html" })]
 ```
 "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development",
+    "start": "webpack serve --open --mode development",
 }
 ```
 
@@ -149,3 +149,13 @@ const App = () => (
 
 ReactDOM.render(<App />, document.getElementById("root"))
 ```
+
+## Step 5: Run the App
+
+Start webpack-dev-server by running
+
+```
+npm start
+```
+
+and it should open the App in the browser
