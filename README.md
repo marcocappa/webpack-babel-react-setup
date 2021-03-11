@@ -29,7 +29,7 @@ Create a "src/index.html" file with the following content:
 
 ## Step 2: Set Up Webpack
 
-Install the following packages:
+### 2.1 Install webpack dependencies:
 
 1. webpack (core)
 2. webpack-cli (cli commands)
@@ -37,13 +37,13 @@ Install the following packages:
 4. html-webpack-plugin (simplilfies working with html files)
 5. html-loader (html files loader)
 
-### 2.1 Install packages
+Command:
 
 ```
 npm i webpack webpack-dev-server html-webpack-plugin --save-dev
 ```
 
-### 2.2 Create webpack config file
+### 2.2 Create webpack configuration file
 
 Create a "webpack.config.js" file with the following content:
 
@@ -61,13 +61,60 @@ plugins: [new HtmlWebPackPlugin({ template: "./src/index.html" })]
 };
 ```
 
-### 2.3 Add scripts
-
-Add build and start commands to scripts section of package.json:
+### 2.3 Add build and start to scripts section of package.json:
 
 ```
 "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development",
 }
+```
+
+## Step 3: Set Up Babel
+
+### 3.1 Install babel dependencies:
+
+1. @babel/core
+2. babel-loader
+3. @babel/preset-env (to compile Javascript ES6 code down to ES5)
+4. @babel/preset-react (to compile JSX down to Javascript)
+
+```
+npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+```
+
+### 3.2 Create .babelrc config
+
+Create the config file on the projet root and add this:
+
+```
+{
+    "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
+```
+
+### 3.3. Add "babel-loader" to webpack configuration:
+
+Add to webpack.config.js this:
+
+```
+...
+
+module.exports = {
+    ...
+    ...
+    module: {
+    rules: [
+        {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader"
+        }
+        }
+    ]
+    },
+    ...
+    ...
+};
 ```
