@@ -40,7 +40,7 @@ Create a "src/index.html" file with the following content:
 Command:
 
 ```
-npm i webpack webpack-dev-server html-webpack-plugin --save-dev
+npm i webpack webpack-cli webpack-dev-server html-webpack-plugin --save-dev
 ```
 
 ### 2.2 Create webpack configuration file
@@ -104,15 +104,15 @@ module.exports = {
     ...
     ...
     module: {
-    rules: [
+      rules: [
         {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: {
             loader: "babel-loader"
+          }
         }
-        }
-    ]
+      ]
     },
     ...
     ...
@@ -155,7 +155,7 @@ ReactDOM.render(<App />, document.getElementById("root"))
 Start webpack-dev-server by running
 
 ```
-npm start
+npm run start
 ```
 
 and it should open the App in the browser
